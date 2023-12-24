@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TransectionController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::controller(StoreController::class)->group(function (){
 });
 
 Route::controller(TransectionController::class)->group(function (){
-    // Route::get('transection','index');
+    Route::post('transection','index');
     // Route::get('transection/edit/{id}','edit');
     Route::post('transection/add','add');
     // Route::post('transection/update/{id}','update');
@@ -46,6 +47,12 @@ Route::controller(TransectionController::class)->group(function (){
 Route::controller(BillController::class)->group(function (){
 
     Route::get('bills/print/{id}','print_bill');
+ 
+});
+
+Route::controller(ReportController::class)->group(function (){
+
+    Route::post('report','created_report');
  
 });
 
